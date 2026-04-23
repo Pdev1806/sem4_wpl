@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>miniproject</title>
+    <title>Watch Store</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   </head>
@@ -18,37 +18,67 @@
           <p>Classic. Sporty. Premium.</p>
         </div>
       </div>
-      <button id="locationBtn" class="location-btn">Location</button>
+      <button id="locationBtn" class="location-btn" style="top:60px;">Location</button>
+
+      <!-- Username display (top-left) -->
+      <div id="userDisplay" style="display:none; position:absolute; top:20px; left:20px; color:white; font-size:0.95rem; font-weight:bold; background:rgba(255,255,255,0.15); padding:6px 12px; border-radius:4px;"></div>
+
+      <!-- Cart button (top-right) -->
+      <button id="cartBtn" class="cart-btn" title="View Cart">
+        🛒 <span id="cartCount">0</span>
+      </button>
     </header>
+
+    <!-- Cart Sidebar -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+    <div id="cartSidebar" class="cart-sidebar">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button id="closeCart" class="close-cart-btn">&times;</button>
+      </div>
+      <div id="cartItems" class="cart-items">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+      <div id="cartFooter" class="cart-footer" style="display:none;">
+        <div class="cart-total">Total: <span id="cartTotal">₹0</span></div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
 
     <main class="container">
       <section>
         <h2>Featured Watches</h2>
-
         <div class="watch-grid">
-          <div class="card">
-            <img src="watch1.jpg" alt="Classic Leather" />
-            <h3>Longines Master</h3>
-            <p>Classic Leather</p>
-          </div>
 
           <div class="card">
-            <img src="watch2.png" alt="Sport Edition" />
-            <h3>Seiko 5 Sports</h3>
-            <p>Sports Edition</p>
-          </div>
-
-          <div class="card">
-            <img src="watch3.jpg" alt="Steel Premium" />
+            <img src="watch1.jpg" alt="Omega Speedmaster" />
             <h3>Omega Speedmaster</h3>
-            <p>Steel Premium</p>
+            <p>Steel Premium Chronograph</p>
+            <p class="watch-price">₹6,999</p>
+            <button class="add-to-cart-btn" data-name="Omega Speedmaster" data-price="6999">+ Add to Cart</button>
           </div>
+
+          <div class="card">
+            <img src="watch2.png" alt="Breitling Avenger" />
+            <h3>Breitling Avenger</h3>
+            <p>Sport Leather Edition</p>
+            <p class="watch-price">₹4,999</p>
+            <button class="add-to-cart-btn" data-name="Breitling Avenger" data-price="4999">+ Add to Cart</button>
+          </div>
+
+          <div class="card">
+            <img src="watch3.jpg" alt="Seiko Prospex" />
+            <h3>Seiko Prospex</h3>
+            <p>Diver's Automatic</p>
+            <p class="watch-price">₹3,499</p>
+            <button class="add-to-cart-btn" data-name="Seiko Prospex" data-price="3499">+ Add to Cart</button>
+          </div>
+
         </div>
       </section>
 
       <section>
         <h2>Watch Details</h2>
-
         <div class="table-wrapper">
           <table>
             <tr>
@@ -58,21 +88,21 @@
               <th>Availability</th>
             </tr>
             <tr>
-              <td>Classic Leather</td>
+              <td>Omega Speedmaster</td>
               <td>Analog</td>
+              <td>₹6,999</td>
+              <td>In Stock</td>
+            </tr>
+            <tr>
+              <td>Breitling Avenger</td>
+              <td>Digital</td>
               <td>₹4,999</td>
               <td>In Stock</td>
             </tr>
             <tr>
-              <td>Sport Edition</td>
-              <td>Digital</td>
-              <td>₹3,499</td>
-              <td>In Stock</td>
-            </tr>
-            <tr>
-              <td>Steel Premium</td>
+              <td>Seiko Prospex</td>
               <td>Analog</td>
-              <td>₹6,999</td>
+              <td>₹3,499</td>
               <td>In Stock</td>
             </tr>
           </table>
@@ -82,15 +112,32 @@
       <section class="actions">
         <a href="signup.htm"><button>Sign Up</button></a>
         <a href="signin.htm"><button class="outline">Sign In</button></a>
+        <button id="logoutBtn" class="outline" style="display:none;">Log Out</button>
       </section>
     </main>
+
     <div id="mapModal" class="map-modal">
       <div class="map-content">
         <span id="closeMap" class="close-btn">&times;</span>
         <div id="map"></div>
       </div>
     </div>
+
+    <!-- Sign-in prompt modal -->
+    <div id="authPromptModal" class="auth-prompt-overlay" style="display:none;">
+      <div class="auth-prompt-box">
+        <h3>Please Sign In</h3>
+        <p>You need to be signed in to add items to your cart.</p>
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+          <a href="signin.htm"><button>Sign In</button></a>
+          <a href="signup.htm"><button class="outline">Sign Up</button></a>
+        </div>
+        <button id="closeAuthPrompt" style="margin-top:12px; background:none; border:none; color:#888; cursor:pointer; font-size:0.9rem;">Cancel</button>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="home.js"></script>
+    <script src="cart.js"></script>
   </body>
 </html>

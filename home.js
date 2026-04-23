@@ -62,22 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
         greet.bind(userObj,"Pune")()
     );
 
-    const username = localStorage.getItem("username");
-
-    if (username) {
-        const welcomeText = document.createElement("div");
-        welcomeText.innerText = "Welcome, " + username;
-
-        welcomeText.style.position = "absolute";
-        welcomeText.style.top = "20px";
-        welcomeText.style.right = "20px";
-        welcomeText.style.color = "white";
-        welcomeText.style.fontSize = "1rem";
-        welcomeText.style.fontWeight = "bold";
-
-        document.querySelector(".header").appendChild(welcomeText);
-    }
-
     const modal = document.getElementById("mapModal");
     const openBtn = document.getElementById("locationBtn");
     const closeBtn = document.getElementById("closeMap");
