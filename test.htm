@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Advanced Functions Demo</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:40px;
+    background:#f2f4f7;
+}
+.section{
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+}
+button{
+    padding:6px 12px;
+    margin-top:5px;
+}
+.output{
+    color:blue;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>JavaScript Advanced Functions Tutorial</h1>
+
+<div class="section">
+<h3>1. Function Constructor</h3>
+<button onclick="newFunctionDemo()">Run</button>
+<p class="output" id="out1"></p>
+</div>
+
+<div class="section">
+<h3>2. IIFE</h3>
+<button onclick="iifeDemo()">Run</button>
+<p class="output" id="out2"></p>
+</div>
+
+<div class="section">
+<h3>3. Closure</h3>
+<button onclick="closureDemo()">Run</button>
+<p class="output" id="out3"></p>
+</div>
+
+<div class="section">
+<h3>4. Arrow Function</h3>
+<button onclick="arrowDemo()">Run</button>
+<p class="output" id="out4"></p>
+</div>
+
+<div class="section">
+<h3>5. this Keyword</h3>
+<button onclick="thisDemo()">Run</button>
+<p class="output" id="out5"></p>
+</div>
+
+<div class="section">
+<h3>6. call(), apply(), bind()</h3>
+<button onclick="methodDemo()">Run</button>
+<p class="output" id="out6"></p>
+</div>
+
+<div class="section">
+<h3>7. Default Parameters</h3>
+<button onclick="defaultDemo()">Run</button>
+<p class="output" id="out7"></p>
+</div>
+
+<div class="section">
+<h3>8. Rest Parameters</h3>
+<button onclick="restDemo()">Run</button>
+<p class="output" id="out8"></p>
+</div>
+
+<div class="section">
+<h3>9. Spread Parameters</h3>
+<button onclick="spreadDemo()">Run</button>
+<p class="output" id="out9"></p>
+</div>
+
+<script>
+
+function newFunctionDemo(){
+ const mul = new Function("x","y","return x*y");
+ document.getElementById("out1").innerText = mul(3,4);
+}
+
+function iifeDemo(){
+ let result = (function(){
+   return "IIFE Executed!";
+ })();
+ document.getElementById("out2").innerText=result;
+}
+
+function closureDemo(){
+ function outer(){
+   let count=0;
+   return function(){
+     count++;
+     return count;
+   }
+ }
+ let counter=outer();
+ document.getElementById("out3").innerText=
+ counter()+" , "+counter();
+}
+
+const add=(a,b)=>a+b;
+function arrowDemo(){
+ document.getElementById("out4").innerText=add(5,6);
+}
+
+function thisDemo(){
+ const obj={
+   name:"JavaScript",
+   show:function(){
+     return this.name;
+   }
+ };
+ document.getElementById("out5").innerText=obj.show();
+}
+
+function greet(city){
+ return this.name+" from "+city;
+}
+
+function methodDemo(){
+ const person={name:"Student"};
+ let c=greet.call(person,"Mumbai");
+ let a=greet.apply(person,["Delhi"]);
+ let b=greet.bind(person,"Pune")();
+ document.getElementById("out6").innerText=
+ c+" | "+a+" | "+b;
+}
+
+function sum(a=10,b=5){
+ return a+b;
+}
+function defaultDemo(){
+ document.getElementById("out7").innerText=sum();
+}
+
+function total(...nums){
+ return nums.reduce((x,y)=>x+y);
+}
+function restDemo(){
+ document.getElementById("out8").innerText=
+ total(1,2,3,4);
+}
+
+function spreadDemo(){
+ const arr=[10,20,30];
+ document.getElementById("out9").innerText=
+ Math.max(...arr);
+}
+
+</script>
+
+</body>
+</html>

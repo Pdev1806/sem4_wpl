@@ -1,0 +1,228 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+#targetIcon:hover rect{
+    fill: lightgray;
+}
+
+.leaflet-marker-icon svg:hover rect{
+    fill: lightgray;
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.header-text{
+    text-align: left;
+}
+
+.header h1{
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+}
+
+.header p{
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.container{
+    max-width: 1100px;
+    width: 95%;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+section{
+    margin-bottom: 50px;
+}
+
+h2{
+    color: navy;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.watch-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+.card{
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+    transition: transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-20px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.table-wrapper{
+    overflow-x: auto;
+    width: auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+th, td{
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th{
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.actions{
+    text-align: center;
+    margin-top: 20px;
+}
+
+button{
+    padding: 12px 28px;
+    background: navy;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+button.outline{
+    background: transparent;
+    color: navy;
+    border: 2px solid navy;
+    box-shadow: none;
+}
+
+@media (max-width: 768px){
+
+    .logo-container{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-text{
+        text-align: center;
+    }
+
+    .header h1{
+        font-size: 2rem;
+    }
+
+    .watch-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .card img{
+        height: auto;
+    }
+
+    table{
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    button{
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.header{
+    position: relative;
+}
+
+.location-btn{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.map-modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.map-content{
+    width: 90%;
+    max-width: 700px;
+    height: 500px;
+    background: white;
+    position: relative;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    z-index: 5
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    color: black;
+}
