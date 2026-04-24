@@ -61,6 +61,7 @@ body {
     text-align: center;
     padding: 50px 20px;
     margin-bottom: 0;
+    border-radius: 10px;
 }
 
 .hero-banner h2 {
@@ -86,6 +87,7 @@ body {
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 10px;
 }
 
 .filter-bar {
