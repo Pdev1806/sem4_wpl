@@ -155,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.setItem("username", user.name);
             localStorage.setItem("userEmail", user.email);
+            localStorage.setItem("userPassword", user.password);
 
             console.log(user.getUserDetails());
 

@@ -67,18 +67,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (valid) {
-            const storedEmail = localStorage.getItem("userEmail");
-            const storedName  = localStorage.getItem("username");
+            const storedEmail    = localStorage.getItem("userEmail");
+            const storedPassword = localStorage.getItem("userPassword");
+            const storedName     = localStorage.getItem("username");
 
-            // If user signed up before, restore their name; otherwise use email prefix
-            if (storedEmail && storedEmail === emailInput.value.trim() && storedName) {
-                localStorage.setItem("username", storedName); // already set, but be explicit
+            if (!storedEmail || !storedPassword) {
+                showError(emailInput, "No account found. Please sign up first.");
+                valid = false;
+            } else if (emailInput.value.trim() !== storedEmail) {
+                showError(emailInput, "Email not found. Please check or sign up.");
+                valid = false;
+            } else if (passwordInput.value.trim() !== storedPassword) {
+                showError(passwordInput, "Incorrect password.");
+                valid = false;
             } else {
-                // New login without prior signup — use email prefix as name
-                localStorage.setItem("username", emailInput.value.trim().split("@")[0]);
+                localStorage.setItem("username", storedName);
+                window.location.href = "watch.htm";
             }
-
-            window.location.href = "watch.htm";
         }
     });
 
