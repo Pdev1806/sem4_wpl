@@ -18,7 +18,7 @@
           <p>Classic. Sporty. Premium.</p>
         </div>
       </div>
-      <button id="locationBtn" class="location-btn" style="top:60px;">Location</button>
+      <button id="locationBtn" class="location-btn" style="top:60px;">📍 Location</button>
 
       <!-- Username display (top-left) -->
       <div id="userDisplay" style="display:none; position:absolute; top:20px; left:20px; color:white; font-size:0.95rem; font-weight:bold; background:rgba(255,255,255,0.15); padding:6px 12px; border-radius:4px;"></div>
@@ -33,7 +33,7 @@
     <div id="cartOverlay" class="cart-overlay"></div>
     <div id="cartSidebar" class="cart-sidebar">
       <div class="cart-header">
-        <h3>Your Cart</h3>
+        <h3>🛒 Your Cart</h3>
         <button id="closeCart" class="close-cart-btn">&times;</button>
       </div>
       <div id="cartItems" class="cart-items">
@@ -46,32 +46,177 @@
     </div>
 
     <main class="container">
+
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-content">
+          <h2>Timepieces That Define You</h2>
+          <p>Explore our curated collection of the world's finest watches</p>
+        </div>
+      </section>
+
+      <!-- Category Filter -->
+      <section class="filter-section">
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="analog">Analog</button>
+          <button class="filter-btn" data-filter="digital">Digital</button>
+          <button class="filter-btn" data-filter="automatic">Automatic</button>
+          <button class="filter-btn" data-filter="luxury">Luxury</button>
+        </div>
+      </section>
+
       <section>
         <h2>Featured Watches</h2>
         <div class="watch-grid">
 
-          <div class="card">
-            <img src="watch1.jpg" alt="Omega Speedmaster" />
-            <h3>Omega Speedmaster</h3>
-            <p>Steel Premium Chronograph</p>
-            <p class="watch-price">₹6,999</p>
-            <button class="add-to-cart-btn" data-name="Omega Speedmaster" data-price="6999">+ Add to Cart</button>
+          <div class="card" data-category="luxury analog">
+            <div class="card-img-wrap">
+              <img src="watch1.jpg" alt="Omega Speedmaster" />
+              <span class="badge">Premium</span>
+            </div>
+            <div class="card-body">
+              <h3>Omega Speedmaster</h3>
+              <p>Steel Premium Chronograph</p>
+              <p class="watch-price">₹6,999</p>
+              <button class="add-to-cart-btn" data-name="Omega Speedmaster" data-price="6999">+ Add to Cart</button>
+            </div>
           </div>
 
-          <div class="card">
-            <img src="watch2.png" alt="Breitling Avenger" />
-            <h3>Breitling Avenger</h3>
-            <p>Sport Leather Edition</p>
-            <p class="watch-price">₹4,999</p>
-            <button class="add-to-cart-btn" data-name="Breitling Avenger" data-price="4999">+ Add to Cart</button>
+          <div class="card" data-category="analog">
+            <div class="card-img-wrap">
+              <img src="watch2.png" alt="Breitling Avenger" />
+            </div>
+            <div class="card-body">
+              <h3>Breitling Avenger</h3>
+              <p>Sport Leather Edition</p>
+              <p class="watch-price">₹4,999</p>
+              <button class="add-to-cart-btn" data-name="Breitling Avenger" data-price="4999">+ Add to Cart</button>
+            </div>
           </div>
 
-          <div class="card">
-            <img src="watch3.jpg" alt="Seiko Prospex" />
-            <h3>Seiko Prospex</h3>
-            <p>Diver's Automatic</p>
-            <p class="watch-price">₹3,499</p>
-            <button class="add-to-cart-btn" data-name="Seiko Prospex" data-price="3499">+ Add to Cart</button>
+          <div class="card" data-category="automatic analog">
+            <div class="card-img-wrap">
+              <img src="watch3.jpg" alt="Seiko Prospex" />
+            </div>
+            <div class="card-body">
+              <h3>Seiko Prospex</h3>
+              <p>Diver's Automatic</p>
+              <p class="watch-price">₹3,499</p>
+              <button class="add-to-cart-btn" data-name="Seiko Prospex" data-price="3499">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="luxury analog automatic">
+            <div class="card-img-wrap">
+              <img src="watch4.jpg" alt="Skeleton Mechanical" />
+              <span class="badge new-badge">New</span>
+            </div>
+            <div class="card-body">
+              <h3>Skeleton Mechanical</h3>
+              <p>Black Gold Open Heart</p>
+              <p class="watch-price">₹8,499</p>
+              <button class="add-to-cart-btn" data-name="Skeleton Mechanical" data-price="8499">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="luxury analog">
+            <div class="card-img-wrap">
+              <img src="watch5.jpg" alt="Rolex Submariner Hulk" />
+              <span class="badge">Premium</span>
+            </div>
+            <div class="card-body">
+              <h3>Rolex Submariner</h3>
+              <p>Green Dial Yellow Gold</p>
+              <p class="watch-price">₹12,999</p>
+              <button class="add-to-cart-btn" data-name="Rolex Submariner" data-price="12999">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="digital">
+            <div class="card-img-wrap">
+              <img src="watch6.jpg" alt="Casio G-Shock" />
+            </div>
+            <div class="card-body">
+              <h3>Casio G-Shock</h3>
+              <p>Shock Resistant Digital</p>
+              <p class="watch-price">₹2,499</p>
+              <button class="add-to-cart-btn" data-name="Casio G-Shock" data-price="2499">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="luxury automatic analog">
+            <div class="card-img-wrap">
+              <img src="watch7.jpg" alt="TAG Heuer Carrera" />
+              <span class="badge new-badge">New</span>
+            </div>
+            <div class="card-body">
+              <h3>TAG Heuer Carrera</h3>
+              <p>Tourbillon Chronograph</p>
+              <p class="watch-price">₹15,999</p>
+              <button class="add-to-cart-btn" data-name="TAG Heuer Carrera" data-price="15999">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="analog">
+            <div class="card-img-wrap">
+              <img src="watch8.jpg" alt="Fossil Grant" />
+            </div>
+            <div class="card-body">
+              <h3>Fossil Grant</h3>
+              <p>Two-tone Chronograph</p>
+              <p class="watch-price">₹3,999</p>
+              <button class="add-to-cart-btn" data-name="Fossil Grant" data-price="3999">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="analog">
+            <div class="card-img-wrap">
+              <img src="watch9.jpg" alt="Tissot PRX" />
+            </div>
+            <div class="card-body">
+              <h3>Tissot PRX</h3>
+              <p>Swiss Made Blue Dial</p>
+              <p class="watch-price">₹5,499</p>
+              <button class="add-to-cart-btn" data-name="Tissot PRX" data-price="5499">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="automatic analog luxury">
+            <div class="card-img-wrap">
+              <img src="watch10.jpg" alt="Seiko Presage" />
+              <span class="badge new-badge">New</span>
+            </div>
+            <div class="card-body">
+              <h3>Seiko Presage</h3>
+              <p>Open Heart Automatic</p>
+              <p class="watch-price">₹7,499</p>
+              <button class="add-to-cart-btn" data-name="Seiko Presage" data-price="7499">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="automatic analog">
+            <div class="card-img-wrap">
+              <img src="watch11.jpg" alt="Timex Marlin" />
+            </div>
+            <div class="card-body">
+              <h3>Timex Marlin</h3>
+              <p>Automatic Leather Strap</p>
+              <p class="watch-price">₹4,299</p>
+              <button class="add-to-cart-btn" data-name="Timex Marlin" data-price="4299">+ Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="card" data-category="analog">
+            <div class="card-img-wrap">
+              <img src="watch12.jpg" alt="Titan Edge" />
+            </div>
+            <div class="card-body">
+              <h3>Titan Edge</h3>
+              <p>Day-Date Steel Bracelet</p>
+              <p class="watch-price">₹2,999</p>
+              <button class="add-to-cart-btn" data-name="Titan Edge" data-price="2999">+ Add to Cart</button>
+            </div>
           </div>
 
         </div>
@@ -81,30 +226,29 @@
         <h2>Watch Details</h2>
         <div class="table-wrapper">
           <table>
-            <tr>
-              <th>Model</th>
-              <th>Type</th>
-              <th>Price</th>
-              <th>Availability</th>
-            </tr>
-            <tr>
-              <td>Omega Speedmaster</td>
-              <td>Analog</td>
-              <td>₹6,999</td>
-              <td>In Stock</td>
-            </tr>
-            <tr>
-              <td>Breitling Avenger</td>
-              <td>Digital</td>
-              <td>₹4,999</td>
-              <td>In Stock</td>
-            </tr>
-            <tr>
-              <td>Seiko Prospex</td>
-              <td>Analog</td>
-              <td>₹3,499</td>
-              <td>In Stock</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Omega Speedmaster</td><td>Analog</td><td>₹6,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>2</td><td>Breitling Avenger</td><td>Analog</td><td>₹4,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>3</td><td>Seiko Prospex</td><td>Automatic</td><td>₹3,499</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>4</td><td>Skeleton Mechanical</td><td>Automatic</td><td>₹8,499</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>5</td><td>Rolex Submariner</td><td>Analog</td><td>₹12,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>6</td><td>Casio G-Shock</td><td>Digital</td><td>₹2,499</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>7</td><td>TAG Heuer Carrera</td><td>Automatic</td><td>₹15,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>8</td><td>Fossil Grant</td><td>Analog</td><td>₹3,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>9</td><td>Tissot PRX</td><td>Analog</td><td>₹5,499</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>10</td><td>Seiko Presage</td><td>Automatic</td><td>₹7,499</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>11</td><td>Timex Marlin</td><td>Automatic</td><td>₹4,299</td><td><span class="stock-badge in">In Stock</span></td></tr>
+              <tr><td>12</td><td>Titan Edge</td><td>Analog</td><td>₹2,999</td><td><span class="stock-badge in">In Stock</span></td></tr>
+            </tbody>
           </table>
         </div>
       </section>
@@ -114,6 +258,10 @@
         <a href="signin.htm"><button class="outline">Sign In</button></a>
         <button id="logoutBtn" class="outline" style="display:none;">Log Out</button>
       </section>
+
+      <footer class="site-footer">
+        <p>&copy; 2025 Watch Store &mdash; Classic. Sporty. Premium.</p>
+      </footer>
     </main>
 
     <div id="mapModal" class="map-modal">
@@ -139,5 +287,23 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="home.js"></script>
     <script src="cart.js"></script>
+
+    <script>
+      // Category filter
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".watch-grid .card");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          this.classList.add("active");
+          const filter = this.dataset.filter;
+          cards.forEach(card => {
+            const cats = card.dataset.category || "";
+            card.style.display = (filter === "all" || cats.includes(filter)) ? "" : "none";
+          });
+        });
+      });
+    </script>
   </body>
 </html>
